@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib/core';
 import { IamCdkStack } from '../lib/iam-cdk-stack';
+import { Ec2CdkStack } from "../lib/ec2-cdk-stack";
 
 const app = new cdk.App();
 new IamCdkStack(app, 'IamCdkStack', {
@@ -18,3 +19,10 @@ new IamCdkStack(app, 'IamCdkStack', {
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
 });
+
+new Ec2CdkStack(app, "Ec2CdkStack", {
+  env: { account: "415365315691", region: "eu-north-1" },
+});
+
+
+
